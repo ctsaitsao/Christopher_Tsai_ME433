@@ -32,8 +32,5 @@ Embedded computing, software control of electromechanical systems, mechanical de
 - Homework 16, line-following robot (built from scratch):
 
   <img src="gifs/hw16_demo.gif" width="325">
-  
-  <br>
   <br>
   <img src="hw16_line_following_robot/bot2.jpeg" width="500">
-  

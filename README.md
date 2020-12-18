@@ -11,27 +11,27 @@ Embedded computing, software control of electromechanical systems, mechanical de
   
 - Homework 6, drawing a progress bar on an LCD screen:
 
-  <img src="gifs/hw6_demo.gif" width="300">
+  <img src="gifs/hw6_demo.gif" width="325">
 
 - Homework 7, drawing bars in four directions depending on gravitational force (inertial measurement unit):
 
-  ![hw7_demo](gifs/hw7_demo.gif)
+  <img src="gifs/hw7_demo.gif" width="325">
   
 - Homework 9, reading Z pressure and X and Y position on touchscreen:
 
-  ![hw9_demo](gifs/hw9_demo.gif)
+  <img src="gifs/hw9_demo.gif" width="325">
 
 - Homework 12, moving computer mouse by tilting circuit (communicates using USB):
 
-  ![hw12_demo](gifs/hw12_demo.gif)
+  <img src="gifs/hw12_demo.gif" width="325">
   
 - Homework 15, blinking lights using interrupts:
 
-  ![hw15_demo](gifs/hw15_demo.gif)
+  <img src="gifs/hw15_demo.gif" width="325">
   
 - Homework 16, line-following robot (built from scratch):
 
-  ![hw16_demo](gifs/hw16_demo.gif)
+  <img src="gifs/hw16_demo.gif" width="325">
   
   <img src="hw16_line_following_robot/bot2.jpeg" width="600">
   

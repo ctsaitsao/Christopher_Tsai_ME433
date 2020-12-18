@@ -1,0 +1,25 @@
+EAGLE is a popular computer-aided design program for electrical layout. The controls are not very modern - first you click on the tool you want to use, then you click on the component you want to manipulate. More modern (and much more expensive and Windows only) tools like Altium let you right-click on a component, and then access it's properties or manipulate it. There is also a nice in-browser program called [Upverter](https://upverter.com/) that would be fun to try, but it is still very new and potentially buggy. EAGLE is used heavily in the DIY and startup communities, and there are lot of helpful tutorials online. 
+
+EAGLE is free to use if you are not profiting from your design, and are staying under a certain size limit. The student version gives you the same capabilities as the paid Pro version.
+
+We will order boards from [PCBway](https://www.pcbway.com), which sells 5 copies of your 10cm x 10cm board for $5, plus shipping (from China, so about $50 for shipping to get here in a week). The manufacturing time is usually about a week, so you have to wait about two weeks from when you order. I will order your boards all together to save on shipping, but that means there is a firm deadline to finish your design - miss the deadline and you don't get your board! (You'll have to use the one I design instead).
+
+There are many other "board houses" to order from, offering fast (ie expensive) turnaround, presoldered components if you supply the parts, and "turn key" if you want them to find and buy the parts. It is usually not cost effective to have them solder the parts unless you are getting hundreds of boards made (for example, the NU32 PCB costs $7, the labor to solder is $7, and the components about $14, when ordering 500 at a time).
+
+A PCB has several layers:
+* A middle layer of fiberglass, sandwiched between the "top" and "bottom" layer of copper, where you draw your wires.
+* Holes (called vias) that are plated, so that they conduct, connecting the top and bottom layers of copper.
+* Soldermask, both on the top and bottom, that cover the copper, preventing accidental shorts. Soldermask is typically green, but you can pay more for other colors. Soldermask is also solder-phobic, so solder cannot "pour" over it and make a short.
+* Silkscreen, the white printed text, that can be on the top and bottom. You can pay more for other colors. Silkscreen does not do anything functionally for the board, but is very important for labeling (the name and value of a component, which direction a component plugs in, your name and date, etc).
+
+You can pay extra for more copper layers (the NU32 has 4, your computer's motherboard can have as many as 16). You can also get flexible PCBs.
+
+There are two basic steps to make a PCB in EAGLE. First, you design the schematic (the file type is .sch), which is an abstract representation of your design (the lines can cross, the chips are drawn as triangles, etc). Second, EAGLE places the components you used onto a blank board (the file type is .brd), and draws yellow lines between the pins that need to be connected with copper based on the .sch. This representation is what is manufactured, so the copper wires you draw should only touch if there is supposed to be an electrical connection. You can also create holes and text, and if you were to pay more, the PCB could be of any shape, with slots or grooves CNCed in.
+
+It helps to have a library of components in EAGLE, so that you do not have to design everything from scratch. EAGLE comes with some generic parts, and some parts from specific manufacturers, but inevitably it does not have all of the parts you need. We will make our own library, stealing parts that do exist in EAGLE, and making some that don't exist.
+
+After making the .brd, EAGLE can check it for errors (like copper that shouldn't touch). PCBway also has manufacturing limits (copper has to be at least 6 mils (thousandths of an inch) away from other copper, traces must be at least 6 mils wide, etc), and EAGLE can check for that too. When there are no more errors, you generate Gerber files (7 different file types) that are zipped up and sent to the manufacturer. Sometimes EAGLE messes up the Gerber files, so it is important to use another software package to view the Gerber files to make sure they look right before placing your order.
+
+Obviously there are a lot of steps here, so the next few wiki pages describe each step. You can also [watch me make a PCB](https://www.youtube.com/watch?v=sNLBA-md6fQ), which is really exciting (this video was made in EAGLE v5.12, so the buttons look different, but functionally everything is the same). The EAGLE tutorials are very thorough, check them out [here](http://eagle.autodesk.com/eagle/documentation). [Sparkfun](https://learn.sparkfun.com/tutorials/using-eagle-schematic) also has a set of tutorials.
+
+Back to the [Schedule](https://github.com/ndm736/ME433_2019/wiki/Schedule)

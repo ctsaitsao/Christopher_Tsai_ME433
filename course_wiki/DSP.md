@@ -1,0 +1,29 @@
+Digital Signal Processing
+
+It is rare that a signal you are interested in is delivered in a form without requiring some kind of post processing. Maybe you want to amplify a specific range in the data, or know the amplitude at a specific frequency, or need to reduce noise. When the signal is an analog voltage, you can build a circuit to clean it up. But if the signal is inherently digital, like the data from the IMU, you must implement your "clean up" in code.  
+
+Digital signal processing, or DSP, has some benefits over an analog circuit. The code is more flexible, easier to simulate, and is "free", in that you do not have to purchase potentially expensive components like extra fast op-amps or add negative voltage supplies to your design. The down side is, of course, the complexity of the code.  
+
+Microchip provides a library for common DSP functions, such as low-pass and high-pass filters, and taking an FFT. The library implements the algorithms with special integer types so that floating point math is not required. But in this class, we will implement the algorithms on our own, with floating point math, to try to understand the concepts better.  
+
+The most common thing you will want to do is "smooth out" noisy data. If you imagine noisy data in the time domain, it resembles your signal, summed with something like white noise. In the frequency domain, you would see peaks at the frequencies you are interested in (your signal), and peaks at the main frequencies of the noise or just a high overall amplitude of all frequencies. Your goal is to increase the "signal to noise ratio", or basically subtract out the frequencies you are not interested in. To do this, you want to reject high frequencies, and keep low frequencies, making this a low-pass filter.  
+
+The easiest way to low-pass filter a signal is to average a few data points, and use the average as your "smoothed" value. The more data points you average, the smoother your signal. To do this in code, you need to implement some kind of buffer. As you collect new data, you need to over-write the oldest data in the buffer, and average everything in the buffer. This is a better method then, say, hard coding in exactly 4 variables to store your data, but later deciding you want to average over 8, and having to rewrite all the code. This filter is called a Moving Average filter, or MAF.    
+
+One way to evaluate how well this type of method works is to imagine that the buffer values are all 0, and the input is a perfect step function. How many new values are required for the average to equal the amplitude of the step? If the buffer is just one value, then it takes only one step. If the buffer has 10 values, it takes 10 steps (10 steps to over-write all of the zeros in the buffer with the step amplitude.) So this method adds phase delay to the signal, which could be undesirable. But it does give the exact value of the step amplitude after the buffer size of steps.  
+
+Perhaps an easier way to implement the low-pass filter is to merely average the current value into a running average of the previous values. No buffer to remember, only the previous value. But how do you merge the two values? 
+The math looks like: new_average = A * previous_value + B * new_value, where A + B = 1. If the data is very noisy, you would choose a large A value, and a small B. If the data is not so noisy, a larger B. Imagine the effect on a perfect step input: with a large B, the new_average gets to the step amplitude relatively quickly. A larger A takes longer. And as the new_value approaches the step amplitude, the rate of approach decreases, and technically never gets there. For this reason, this type of filter is called an infinite impulse response, or IIR filter. The MAF described above takes a finite number of steps to converge, so it is called a finite impulse response filter, or FIR.  
+
+There are many tools available to simulate digital filters, to allow you to see the effect of your buffer size or scalar weights like A and B. We will use MATLAB to see how our filters will work, and then as a tool to aide in their design.  
+
+If you think about the MAF, it looks a little like the IIR filter, where there are n scalar weights, and each is 1/n. In MATLAB, you can create an array of these weights, and use the command freqz() on that array to see the frequency response of your filter. The frequency response shows what happens to the amplitude of frequencies as they pass through the filter. Simulate the frequency response of a MAF that uses 4 samples.  
+
+Note the scale of the x-axis. The maximum value, 1, represents the Nyquist frequency of your signal (or 1/2 of the sample rate). So the frequency that is removed the most is 1/4 of the sample rate, at a -60dB loss. But most of the signal above 1/8 of the sample rate is only reduced by -10dB, or a gin of 0.25. SO this is not a great filter. Using move samples helps, but the returns diminish as you add samples.  
+
+But you don't have to make every weight the same, as long as they sum to 1. In fact, you can get a much better response if they are not the same. The MATLAB function fir1 helps you create the weights for a specific filter cut-off frequency. For example, fir1(5,.3), will generate 6 weights for a cut-off frequency of 0.3 of the Nyquist frequency. Use "help fir1" to learn about other ways to use fir1, including the design of high-pass, band-pass, and special notch filters.  
+
+Read the DSP chapter of the ME333 textbook posted in the code section for more information.
+
+   
+Back to the [Schedule](https://github.com/ndm736/ME433_2019/wiki/Schedule)  

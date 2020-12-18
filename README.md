@@ -11,7 +11,7 @@ Embedded computing, software control of electromechanical systems, mechanical de
   
 - Homework 6, drawing a progress bar on an LCD screen:
 
-  ![hw6_demo](gifs/hw6_demo.gif)
+  <img src="gifs/hw6_demo.gif" width="300">
 
 - Homework 7, drawing bars in four directions depending on gravitational force (inertial measurement unit):
 
@@ -33,4 +33,5 @@ Embedded computing, software control of electromechanical systems, mechanical de
 
   ![hw16_demo](gifs/hw16_demo.gif)
   
-  ![hw16_pic](hw16_line_following_robot/bot2.jpeg)
+  <img src="hw16_line_following_robot/bot2.jpeg" width="600">
+  

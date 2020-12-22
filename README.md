@@ -7,31 +7,31 @@ Embedded computing, software control of electromechanical systems, mechanical de
 ## Notable Demos
 - Homework 5, using I2C to shine an LED when a button is pressed:
 
-  ![hw5_demo](gifs/hw5_demo.gif)
+  ![hw5_demo](hw5_i2c/demo.gif)
   
 - Homework 6, drawing a progress bar on an LCD screen:
 
-  <img src="gifs/hw6_demo.gif" width="325">
+  <img src="hw6_lcd_screen/demo.gif" width="325">
 
 - Homework 7, drawing bars in four directions depending on gravitational force (inertial measurement unit):
 
-  <img src="gifs/hw7_demo.gif" width="325">
+  <img src="hw7_imu/demo.gif" width="325">
   
 - Homework 9, reading Z pressure and X and Y position on touchscreen:
 
-  <img src="gifs/hw9_demo.gif" width="325">
+  <img src="hw9_lcd_touchscreen/demo.gif" width="325">
 
 - Homework 12, moving computer mouse by tilting circuit (communicates using USB):
 
-  <img src="gifs/hw12_demo.gif" width="325">
+  <img src="hw12_usb_mouse/demo.gif" width="325">
   
 - Homework 15, blinking lights using interrupts:
 
-  <img src="gifs/hw15_demo.gif" width="325">
+  <img src="hw15_plotting_pwm_interrupts/demo.gif" width="325">
   
 - Homework 16, line-following robot (built from scratch):
 
-  <img src="gifs/hw16_demo.gif" width="325">
+  <img src="hw16_line_following_robot/demo.gif" width="325">
   <br>
   <br>
   <img src="hw16_line_following_robot/bot2.jpeg" width="500">
